@@ -3,7 +3,14 @@ import Image2 from "../Assets/Images/Popular/Image2.png";
 import Image3 from "../Assets/Images/Popular/Image3.png";
 import Image4 from "../Assets/Images/Popular/Image4.png";
 
-const Products = [
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+}
+
+const Products: Product[] = [
   {
     id: 1,
     image: Image1,

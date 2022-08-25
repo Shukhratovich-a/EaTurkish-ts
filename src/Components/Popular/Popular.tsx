@@ -4,13 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import useWindowDimensions from "../../Hooks/useWindowDimensions";
 
-import Container from "../Container/Container";
-
 import PopularProducts from "../../Datas/PopularProducts";
-import PopularCard from "../PopularCard/PopularCard";
+
+import Container from "../Container/Container";
 
 import HeadingSmall from "../Lib/Headings/HeadingSmall/HeadingSmall";
 import NavigateButton from "../Lib/Buttons/NavigateButton/NavigateButton";
+
+import PopularCard from "../PopularCard/PopularCard";
 
 import "swiper/scss";
 import "swiper/scss/pagination";

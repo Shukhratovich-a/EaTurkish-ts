@@ -1,0 +1,14 @@
+@import "../../Scss/Variables.scss";
+
+.news {
+  padding: 120px 0;
+  background-color: $white;
+}
+
+.news__heading {
+  text-align: center;
+
+  h2 {
+    align-items: center;
+  }
+}

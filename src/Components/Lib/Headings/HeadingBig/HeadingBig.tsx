@@ -5,9 +5,9 @@ import styles from "./HeadingBig.module.scss";
 interface Props {
   className: string;
   top?: boolean;
-  topHeading: string;
+  topHeading?: string;
   heading: string;
-  description: string;
+  description?: string;
 }
 
 const HeadingBig: React.FC<Props> = ({

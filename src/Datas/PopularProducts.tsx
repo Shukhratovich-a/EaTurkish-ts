@@ -3,14 +3,6 @@ import Popular2 from "../Assets/Images/Popular/Image2.png";
 import Popular3 from "../Assets/Images/Popular/Image3.png";
 import Popular4 from "../Assets/Images/Popular/Image4.png";
 
-interface Product {
-  id: number;
-  image: string;
-  title: string;
-  rating: number;
-  price: number;
-}
-
 const PopularProducts: Product[] = [
   {
     id: 1,

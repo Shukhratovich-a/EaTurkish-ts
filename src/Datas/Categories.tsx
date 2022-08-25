@@ -1,10 +1,10 @@
-interface category {
+interface Category {
   id: number;
   title: string;
   slug: string;
 }
 
-const Categories: category[] = [
+const Categories: Category[] = [
   {
     id: 1,
     title: "all",

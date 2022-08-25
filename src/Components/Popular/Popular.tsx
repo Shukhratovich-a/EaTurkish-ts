@@ -1,13 +1,16 @@
 import React from "react";
-import { Autoplay } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
+
+import useWindowDimensions from "../../Hooks/useWindowDimensions";
+
+import Container from "../Container/Container";
 
 import PopularProducts from "../../Datas/PopularProducts";
+import PopularCard from "../PopularCard/PopularCard";
 
 import HeadingSmall from "../Lib/Headings/HeadingSmall/HeadingSmall";
 import NavigateButton from "../Lib/Buttons/NavigateButton/NavigateButton";
-import PopularCard from "../PopularCard/PopularCard";
 
 import "swiper/scss";
 import "swiper/scss/pagination";
@@ -15,6 +18,8 @@ import "swiper/scss/navigation";
 import styles from "./Popular.module.scss";
 
 const Popular = () => {
+  const { width }: { width: number } = useWindowDimensions();
+
   const sliderRef = React.useRef() as any;
 
   const [products] = React.useState(PopularProducts);
@@ -23,38 +28,46 @@ const Popular = () => {
   const nextButton = React.useRef<HTMLButtonElement | null>(null);
 
   const handlePrev = React.useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev();
+    if (width > 550) {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slidePrev();
+    }
   }, []);
 
   const handleNext = React.useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
+    if (width > 550) {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slideNext();
+    }
   }, []);
 
   React.useEffect(() => {
-    prevButton.current!.disabled = sliderRef.current.swiper.isBeginning;
-    nextButton.current!.disabled = sliderRef.current.swiper.isEnd;
+    if (width > 550) {
+      prevButton.current!.disabled = sliderRef.current.swiper.isBeginning;
+      nextButton.current!.disabled = sliderRef.current.swiper.isEnd;
+    }
   }, []);
 
   return (
     <section className={`${styles.popular}`}>
-      <div className={`${styles.container} container`}>
+      <Container className={`${styles.container}`}>
         <div className={`${styles.popular__top}`}>
           <HeadingSmall className={`${styles.popular__heading}`}>popular dishes</HeadingSmall>
 
-          <div className={`${styles.popular__top__right}`}>
-            <NavigateButton
-              className={`${styles.popular__swiper__button} ${styles["popular__swiper__button--prev"]}`}
-              onClick={handlePrev}
-              ref={prevButton}
-            />
-            <NavigateButton
-              className={`${styles.popular__swiper__button} ${styles["popular__swiper__button--next"]}`}
-              onClick={handleNext}
-              ref={nextButton}
-            />
-          </div>
+          {width > 550 && (
+            <div className={`${styles.popular__top__right}`}>
+              <NavigateButton
+                className={`${styles.popular__swiper__button} ${styles["popular__swiper__button--prev"]}`}
+                onClick={handlePrev}
+                ref={prevButton}
+              />
+              <NavigateButton
+                className={`${styles.popular__swiper__button} ${styles["popular__swiper__button--next"]}`}
+                onClick={handleNext}
+                ref={nextButton}
+              />
+            </div>
+          )}
         </div>
 
         <Swiper
@@ -67,11 +80,12 @@ const Popular = () => {
           slidesPerGroup={1}
           autoplay={{
             delay: 5000,
-            disableOnInteraction: false,
           }}
           onSlideChange={() => {
-            prevButton.current!.disabled = sliderRef.current.swiper.isBeginning;
-            nextButton.current!.disabled = sliderRef.current.swiper.isEnd;
+            if (width > 550) {
+              prevButton.current!.disabled = sliderRef.current.swiper.isBeginning;
+              nextButton.current!.disabled = sliderRef.current.swiper.isEnd;
+            }
           }}
           modules={[Autoplay]}
         >
@@ -82,7 +96,7 @@ const Popular = () => {
               </SwiperSlide>
             ))}
         </Swiper>
-      </div>
+      </Container>
     </section>
   );
 };

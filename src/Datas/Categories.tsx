@@ -1,9 +1,3 @@
-interface Category {
-  id: number;
-  title: string;
-  slug: string;
-}
-
 const Categories: Category[] = [
   {
     id: 1,

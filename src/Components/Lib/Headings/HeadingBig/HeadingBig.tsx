@@ -1,6 +1,22 @@
+import React from "react";
+
 import styles from "./HeadingBig.module.scss";
 
-const HeadingBig = ({ className, top = true, topHeading, heading, description }) => {
+interface Props {
+  className: string;
+  top?: boolean;
+  topHeading: string;
+  heading: string;
+  description: string;
+}
+
+const HeadingBig: React.FC<Props> = ({
+  className,
+  top = true,
+  topHeading,
+  heading,
+  description,
+}) => {
   return (
     <div className={`${className} ${styles.heading}`}>
       {topHeading && top ? <span className={`${styles.heading__top}`}>{topHeading}</span> : null}

@@ -1,8 +1,9 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "../../Components/Header/Header";
-// import Subscribe from "./Components/Subscribe/Subscribe";
-// import Footer from "./Components/Footer/Footer";
+import Subscribe from "../../Components/Subscribe/Subscribe";
+import Footer from "../../Components/Footer/Footer";
 
 import Home from "./Home/Home";
 // import Menu from "./Menu/Menu";
@@ -11,7 +12,7 @@ import Home from "./Home/Home";
 // import Contact from "./Contact/Contact";
 // import Login from "./Login/Login";
 
-const ClientApp = () => {
+const ClientApp: React.FC = () => {
   return (
     <div className="app">
       <Header />
@@ -25,8 +26,8 @@ const ClientApp = () => {
         {/* <Route path={"/login"} element={<Login />} /> */}
       </Routes>
 
-      {/* <Subscribe /> */}
-      {/* <Footer /> */}
+      <Subscribe />
+      <Footer />
     </div>
   );
 };

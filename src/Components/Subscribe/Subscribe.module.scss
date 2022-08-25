@@ -1,0 +1,122 @@
+@import "../../Scss/Variables.scss";
+
+.subscribe {
+  margin-bottom: -200px;
+  padding: 0 20px;
+  color: $white;
+  text-align: center;
+  background-color: $white;
+}
+
+.subscribe__wrapper {
+  position: relative;
+  z-index: 9;
+}
+
+.subscribe__inner {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px;
+  background-color: $red;
+  border: 1px solid rgba($color: $white, $alpha: 0.4);
+  box-shadow: 22px 30px 95px 1px rgba(86, 86, 86, 0.2);
+  border-radius: 20px;
+  background-color: $red;
+}
+
+.subscribe__heading {
+  margin-bottom: 64px;
+
+  p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.subscribe__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "CeraRoundPro", "OpenSans", "Arial", "Helvetica", sans-serif;
+}
+
+.subscribe__form__input {
+  max-width: 635px;
+  width: 100%;
+  margin-right: 32px;
+  padding: 11px 18px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  font-feature-settings: "tnum" on, "lnum" on;
+  color: $inputColor;
+  outline: none;
+  border: 1px solid $inputColor;
+  border-radius: 26px;
+  background-color: transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+
+  &::placeholder {
+    text-transform: capitalize;
+    color: $inputColor;
+  }
+
+  &:focus {
+    color: $white;
+    border-color: $white;
+  }
+}
+
+.subscribe__form__button {
+  padding: 12px 32px;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  border-radius: 26px;
+}
+
+@media only screen and (max-width: 768px) {
+  .subscribe__heading {
+    margin-bottom: 20px;
+  }
+
+  .subscribe__inner {
+    padding: 40px 30px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .subscribe__form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .subscribe__form__input {
+    max-width: 300px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .subscribe__form__button {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .subscribe__form__input {
+    max-width: 100%;
+  }
+
+  .subscribe__form__button {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .subscribe__inner {
+    padding: 30px 15px;
+  }
+}

@@ -32,21 +32,21 @@ const Popular = () => {
       if (!sliderRef.current) return;
       sliderRef.current.swiper.slidePrev();
     }
-  }, []);
+  }, [width]);
 
   const handleNext = React.useCallback(() => {
     if (width > 550) {
       if (!sliderRef.current) return;
       sliderRef.current.swiper.slideNext();
     }
-  }, []);
+  }, [width]);
 
   React.useEffect(() => {
     if (width > 550) {
       prevButton.current!.disabled = sliderRef.current.swiper.isBeginning;
       nextButton.current!.disabled = sliderRef.current.swiper.isEnd;
     }
-  }, []);
+  }, [width]);
 
   return (
     <section className={`${styles.popular}`}>
